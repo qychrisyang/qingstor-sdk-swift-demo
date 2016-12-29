@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1733E2D661441AC6B65EE480 /* Pods_QingStorSDKDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF169747C633ADBEC2FBD2EE /* Pods_QingStorSDKDemo.framework */; };
+		837BC3F91E13C93F00355188 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BC3F81E13C93F00355188 /* AppDelegate.swift */; };
+		837BC3FB1E13C93F00355188 /* BucketListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BC3FA1E13C93F00355188 /* BucketListController.swift */; };
+		837BC3FE1E13C93F00355188 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837BC3FC1E13C93F00355188 /* Main.storyboard */; };
+		837BC4001E13C93F00355188 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 837BC3FF1E13C93F00355188 /* Assets.xcassets */; };
+		837BC4031E13C93F00355188 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837BC4011E13C93F00355188 /* LaunchScreen.storyboard */; };
+		837BC40B1E14490C00355188 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 837BC40A1E14490C00355188 /* Config.plist */; };
+		837BC40D1E144C5500355188 /* ObjectListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837BC40C1E144C5500355188 /* ObjectListController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		837BC3F51E13C93F00355188 /* QingStorSDKDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QingStorSDKDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		837BC3F81E13C93F00355188 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		837BC3FA1E13C93F00355188 /* BucketListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListController.swift; sourceTree = "<group>"; };
+		837BC3FD1E13C93F00355188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		837BC3FF1E13C93F00355188 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		837BC4021E13C93F00355188 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		837BC4041E13C93F00355188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		837BC40A1E14490C00355188 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		837BC40C1E144C5500355188 /* ObjectListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectListController.swift; sourceTree = "<group>"; };
+		837BC40E1E14BA3200355188 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		9CEED8DC0A79C66B77EC60A4 /* Pods-QingStorSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QingStorSDKDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QingStorSDKDemo/Pods-QingStorSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+		BF169747C633ADBEC2FBD2EE /* Pods_QingStorSDKDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QingStorSDKDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E343BB3F07D48A5422327669 /* Pods-QingStorSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QingStorSDKDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QingStorSDKDemo/Pods-QingStorSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		837BC3F21E13C93F00355188 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1733E2D661441AC6B65EE480 /* Pods_QingStorSDKDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04536EA4FA4AB92C961C969D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				837BC40E1E14BA3200355188 /* AssetsLibrary.framework */,
+				BF169747C633ADBEC2FBD2EE /* Pods_QingStorSDKDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		583DCC86EF4ECD283C83D2AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E343BB3F07D48A5422327669 /* Pods-QingStorSDKDemo.debug.xcconfig */,
+				9CEED8DC0A79C66B77EC60A4 /* Pods-QingStorSDKDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		837BC3EC1E13C93F00355188 = {
+			isa = PBXGroup;
+			children = (
+				837BC3F71E13C93F00355188 /* QingStorSDKDemo */,
+				837BC3F61E13C93F00355188 /* Products */,
+				583DCC86EF4ECD283C83D2AA /* Pods */,
+				04536EA4FA4AB92C961C969D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		837BC3F61E13C93F00355188 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				837BC3F51E13C93F00355188 /* QingStorSDKDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		837BC3F71E13C93F00355188 /* QingStorSDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				837BC40A1E14490C00355188 /* Config.plist */,
+				837BC3F81E13C93F00355188 /* AppDelegate.swift */,
+				837BC3FA1E13C93F00355188 /* BucketListController.swift */,
+				837BC40C1E144C5500355188 /* ObjectListController.swift */,
+				837BC3FC1E13C93F00355188 /* Main.storyboard */,
+				837BC3FF1E13C93F00355188 /* Assets.xcassets */,
+				837BC4011E13C93F00355188 /* LaunchScreen.storyboard */,
+				837BC4041E13C93F00355188 /* Info.plist */,
+			);
+			path = QingStorSDKDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		837BC3F41E13C93F00355188 /* QingStorSDKDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 837BC4071E13C93F00355188 /* Build configuration list for PBXNativeTarget "QingStorSDKDemo" */;
+			buildPhases = (
+				16907331AA9E2FC2204F7668 /* [CP] Check Pods Manifest.lock */,
+				837BC3F11E13C93F00355188 /* Sources */,
+				837BC3F21E13C93F00355188 /* Frameworks */,
+				837BC3F31E13C93F00355188 /* Resources */,
+				149D8F34729A542BEABBFB44 /* [CP] Embed Pods Frameworks */,
+				7C0F89765E5ACE65E199E240 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QingStorSDKDemo;
+			productName = QingStorSDKDemo;
+			productReference = 837BC3F51E13C93F00355188 /* QingStorSDKDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		837BC3ED1E13C93F00355188 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Yunify;
+				TargetAttributes = {
+					837BC3F41E13C93F00355188 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 837BC3F01E13C93F00355188 /* Build configuration list for PBXProject "QingStorSDKDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 837BC3EC1E13C93F00355188;
+			productRefGroup = 837BC3F61E13C93F00355188 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				837BC3F41E13C93F00355188 /* QingStorSDKDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		837BC3F31E13C93F00355188 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837BC40B1E14490C00355188 /* Config.plist in Resources */,
+				837BC4031E13C93F00355188 /* LaunchScreen.storyboard in Resources */,
+				837BC4001E13C93F00355188 /* Assets.xcassets in Resources */,
+				837BC3FE1E13C93F00355188 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		149D8F34729A542BEABBFB44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QingStorSDKDemo/Pods-QingStorSDKDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16907331AA9E2FC2204F7668 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7C0F89765E5ACE65E199E240 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QingStorSDKDemo/Pods-QingStorSDKDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		837BC3F11E13C93F00355188 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				837BC3FB1E13C93F00355188 /* BucketListController.swift in Sources */,
+				837BC40D1E144C5500355188 /* ObjectListController.swift in Sources */,
+				837BC3F91E13C93F00355188 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		837BC3FC1E13C93F00355188 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				837BC3FD1E13C93F00355188 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		837BC4011E13C93F00355188 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				837BC4021E13C93F00355188 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		837BC4051E13C93F00355188 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		837BC4061E13C93F00355188 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		837BC4081E13C93F00355188 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E343BB3F07D48A5422327669 /* Pods-QingStorSDKDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QingStorSDKDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunify.QingStorSDKDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		837BC4091E13C93F00355188 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CEED8DC0A79C66B77EC60A4 /* Pods-QingStorSDKDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = QingStorSDKDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunify.QingStorSDKDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		837BC3F01E13C93F00355188 /* Build configuration list for PBXProject "QingStorSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837BC4051E13C93F00355188 /* Debug */,
+				837BC4061E13C93F00355188 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		837BC4071E13C93F00355188 /* Build configuration list for PBXNativeTarget "QingStorSDKDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				837BC4081E13C93F00355188 /* Debug */,
+				837BC4091E13C93F00355188 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 837BC3ED1E13C93F00355188 /* Project object */;
+}

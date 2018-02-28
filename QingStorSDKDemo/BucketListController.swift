@@ -45,7 +45,7 @@ class BucketListController: UITableViewController {
         }
     }
     
-    private dynamic func handleRefresh() {
+    @objc private func handleRefresh() {
         requestBucketList()
     }
     
@@ -56,10 +56,10 @@ class BucketListController: UITableViewController {
                     self.listBucketsOutput = response.output
                     self.tableView.reloadData()
                 } else {
-                    print("error: \(response.output.errMessage)")
+                    print("error: \(String(describing: response.output.errMessage))")
                 }
             } else {
-                print("error: \(error)")
+                print("error: \(String(describing: error))")
             }
             
             self.refreshControl?.endRefreshing()

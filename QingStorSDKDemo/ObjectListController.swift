@@ -43,7 +43,7 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
         beginRefresh()
     }
     
-    private dynamic func handleRefresh() {
+    @objc private func handleRefresh() {
         requestObjectList()
     }
     
@@ -54,17 +54,17 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
                     self.listObjectsOutput = response.output
                     self.tableView.reloadData()
                 } else {
-                    print("error: \(response.output.errMessage)")
+                    print("error: \(String(describing: response.output.errMessage))")
                 }
             } else {
-                print("error: \(error)")
+                print("error: \(String(describing: error))")
             }
             
             self.refreshControl?.endRefreshing()
         }
     }
     
-    private dynamic func pickImage() {
+    @objc private func pickImage() {
         let alertController = UIAlertController(title: "Image Source", message: nil, preferredStyle: .actionSheet)
         let handler: (UIImagePickerControllerSourceType) -> Void = { sourceType in
             let pickerVC = UIImagePickerController()
@@ -131,10 +131,10 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
                         self.listObjectsOutput?.keys?.remove(at: indexPath.row)
                         tableView.deleteRows(at: [indexPath], with: .automatic)
                     } else {
-                        print("error: \(response.output.errMessage)")
+                        print("error: \(String(describing: response.output.errMessage))")
                     }
                 } else {
-                    print("error: \(error)")
+                    print("error: \(String(describing: error))")
                 }
             }
         }
@@ -169,10 +169,10 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
                     if response.output.errMessage == nil {
                         self.beginRefresh()
                     } else {
-                        print("error: \(response.output.errMessage)")
+                        print("error: \(String(describing: response.output.errMessage))")
                     }
                 } else {
-                    print("error: \(error)")
+                    print("error: \(String(describing: error))")
                 }
                 
                 self.navigationItem.rightBarButtonItem = originRightBarButtonItem

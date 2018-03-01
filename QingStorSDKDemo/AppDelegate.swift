@@ -9,6 +9,8 @@
 import UIKit
 import QingStorSDK
 
+var globalService: QingStor!
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register QingStorSDK
         let url = URL(fileURLWithPath: Bundle.main.path(forResource: "Config", ofType: "plist")!)
         try! Registry.registerFrom(plist: url)
+        
+        let qingstorSigner = QingStorSigner()
+        let signer = CustomizedSigner {
+            switch $0.signatureType {
+            case let .query(timeoutSeconds):
+                try $3(qingstorSigner.querySignatureString(from: $2, timeoutSeconds: timeoutSeconds))
+            case .header:
+                try $3(qingstorSigner.headerSignatureString(from: $2))
+            }
+        }
+        globalService = QingStor(signer: signer)
         
         return true
     }

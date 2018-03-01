@@ -15,7 +15,7 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
     var bucketModel: BucketModel! {
         didSet {
             title = bucketModel.name
-            bucketService = QingStor().bucket(bucketName: bucketModel.name!, zone: bucketModel.location!)
+            bucketService = globalService.bucket(bucketName: bucketModel.name!, zone: bucketModel.location!)
         }
     }
     

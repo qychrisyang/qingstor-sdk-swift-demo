@@ -11,14 +11,10 @@ import QingStorSDK
 
 class BucketListController: UITableViewController {
     
-    fileprivate var qsService: QingStor!
-    
     fileprivate var listBucketsOutput: ListBucketsOutput?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        qsService = QingStor()
         
         setupView()
     }
@@ -50,7 +46,7 @@ class BucketListController: UITableViewController {
     }
     
     private func requestBucketList() {
-        qsService.listBuckets(input: ListBucketsInput()) { response, error in
+        globalService.listBuckets(input: ListBucketsInput()) { response, error in
             if let response = response {
                 if response.output.errMessage == nil {
                     self.listBucketsOutput = response.output

@@ -17,22 +17,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Register QingStorSDK
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "Config", ofType: "plist")!)
-        try! Registry.registerFrom(plist: url)
+        // Using `APIContext` to initialize QingStor service.
+        usingAPIContextToInitializeQingStorService()
         
-        let qingstorSigner = QingStorSigner()
-        let signer = CustomizedSigner {
-            switch $0.signatureType {
-            case let .query(timeoutSeconds):
-                try $3(qingstorSigner.querySignatureString(from: $2, timeoutSeconds: timeoutSeconds))
-            case .header:
-                try $3(qingstorSigner.headerSignatureString(from: $2))
-            }
-        }
-        globalService = QingStor(signer: signer)
+        // Or you can use `Registry` to register QingStor service config.
+//        usingRegistryToInitializeQingStorService()
+        
+        // Or you might want to use customized signer to calculate signature string.
+//        usingCustomizedSignerToCalculateSignatureStringAndInitializeQingStorService()
         
         return true
+    }
+    
+    func usingAPIContextToInitializeQingStorService() {
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "Config", ofType: "plist")!)
+        let context = try! APIContext(plist: url)
+        globalService = QingStor(context: context)
+    }
+    
+    // Using `Registry` to register QingStor service config.
+    func usingRegistryToInitializeQingStorService() {
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "Config", ofType: "plist")!)
+        try! Registry.registerFrom(plist: url)
+        globalService = QingStor()
+    }
+    
+    // Use customized signer to calculate signature string.
+    func usingCustomizedSignerToCalculateSignatureStringAndInitializeQingStorService() {
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "Config", ofType: "plist")!)
+        let context = try! APIContext(plist: url)
+        let singer = CustomizedSigner.init(signatureType: .header) { signer, plainString, builder, completion in
+            // Setting http date header of used to calculate the signature.
+            builder.addHeaders(["Date":"The date of used to calculate the signature"])
+            
+            let signatureString = "The signature string of you calculated"
+            let accessKey = "The access key of you applied from QingCloud"
+            var result: SignatureResult!
+            switch signer.signatureType {
+            case let .query(timeoutSeconds):
+                result = .query(signature: signatureString, accessKey: accessKey, expires: timeoutSeconds)
+            case .header:
+                result = .header(signature: signatureString, accessKey: accessKey)
+            }
+            
+            completion(result)
+        }
+        
+        globalService = QingStor(context: context, signer: singer)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -56,7 +87,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

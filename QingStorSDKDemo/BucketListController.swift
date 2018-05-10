@@ -43,6 +43,9 @@ class BucketListController: UITableViewController {
     
     @objc private func handleRefresh() {
         requestBucketList()
+        
+        // Or can use APISender to send request.
+//        usingAPISenderToRequestBucketList()
     }
     
     private func requestBucketList() {
@@ -56,6 +59,30 @@ class BucketListController: UITableViewController {
                 }
             } else {
                 print("error: \(String(describing: error))")
+            }
+            
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    // Using APISender to request bucket list.
+    private func usingAPISenderToRequestBucketList() {
+        let (sender, _) = globalService.listBucketsSender(input: ListBucketsInput())
+        
+        // Can use sender to add custom header
+        sender?.addHeaders(["Custom-Header-Key":"Custom-Header-Value"])
+        
+        // Send api request
+        sender?.sendAPI { (response: Response<ListBucketsOutput>?, error: Error?) in
+            if let output = response?.output {
+                if output.errMessage == nil {
+                    self.listBucketsOutput = output
+                    self.tableView.reloadData()
+                } else {
+                    print("error: \(output.errMessage!)")
+                }
+            } else {
+                print("error: \(error!)")
             }
             
             self.refreshControl?.endRefreshing()

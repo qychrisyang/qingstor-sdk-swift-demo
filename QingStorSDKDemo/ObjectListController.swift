@@ -15,13 +15,14 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
     var bucketModel: BucketModel! {
         didSet {
             title = bucketModel.name
-            bucketService = globalService.bucket(bucketName: bucketModel.name!, zone: bucketModel.location!)
+            bucket = globalService.bucket(bucketName: bucketModel.name!, zone: bucketModel.location!)
         }
     }
     
-    fileprivate var bucketService: Bucket!
+    fileprivate var bucket: Bucket!
     fileprivate var listObjectsOutput: ListObjectsOutput?
     
+    @IBOutlet var progressView: UIProgressView!
     fileprivate lazy var spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
     }
     
     func setupView() {
+        tableView.tableHeaderView = nil
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         let refresh = UIRefreshControl()
@@ -48,7 +50,7 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
     }
     
     private func requestObjectList() {
-        bucketService.listObjects(input: ListObjectsInput()) { response, error in
+        bucket.listObjects(input: ListObjectsInput()) { response, error in
             if let response = response {
                 if response.output.errMessage == nil {
                     self.listObjectsOutput = response.output
@@ -70,7 +72,7 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
             let pickerVC = UIImagePickerController()
             pickerVC.view.backgroundColor = .white
             pickerVC.delegate = self
-            pickerVC.allowsEditing = true
+            pickerVC.allowsEditing = false
             pickerVC.sourceType = sourceType
             
             self.present(pickerVC, animated: true, completion: nil)
@@ -125,7 +127,7 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let object = listObjectsOutput?.keys?[indexPath.row]
-            bucketService.deleteObject(objectKey: object!.key!) { response, error in
+            bucket.deleteObject(objectKey: object!.key!) { response, error in
                 if let response = response {
                     if response.output.errMessage == nil {
                         self.listObjectsOutput?.keys?.remove(at: indexPath.row)
@@ -155,19 +157,22 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
             pathExtension = url.pathExtension.lowercased()
         }
 
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             let originRightBarButtonItem = navigationItem.rightBarButtonItem
             
             spinner.startAnimating()
             navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
+            tableView.tableHeaderView = progressView
             
+            let fileName = "\(Int(Date().timeIntervalSince1970)).\(pathExtension)"
             let data = UIImageJPEGRepresentation(image, 0.8)!
             let input = PutObjectInput(contentLength: data.count, contentType: contentType, bodyInputStream: InputStream(data: data))
-            let key = "\(Int(Date().timeIntervalSince1970)).\(pathExtension)"
-            bucketService.putObject(objectKey: key, input: input) { response, error in
+            bucket.putObject(objectKey: fileName, input: input, progress: { progress in
+                self.progressView.progress = Float(progress.fractionCompleted)
+            }, completion: { response, error in
                 if let response = response {
                     if response.output.errMessage == nil {
-                        self.beginRefresh()
+                        self.handleRefresh()
                     } else {
                         print("error: \(String(describing: response.output.errMessage))")
                     }
@@ -176,7 +181,9 @@ class ObjectListController: UITableViewController, UIImagePickerControllerDelega
                 }
                 
                 self.navigationItem.rightBarButtonItem = originRightBarButtonItem
-            }
+                self.tableView.tableHeaderView = nil
+                self.progressView.progress = 0
+            })
         }
     }
     
